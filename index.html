@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>เลือกวันหยุด</title>
+    <title>ลงทะเบียนวันหยุด (Google Calendar)</title>
     <script>
-        async function submitForm() {
+        async function submitToCalendar() {
             const name = document.getElementById("name").value;
             const date = document.getElementById("date").value;
-            const scriptURL = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";  // เปลี่ยนเป็น URL ที่ได้จาก Google Apps Script
+            const scriptURL = "https://script.google.com/macros/s/AKfycbzkIXg3Oo0QJTJYp7rf1eTyM8eHBLxuC0gz50luqBBl_mn_Ox4cvap2gDSSNAwXiSo4/exec";  // ใส่ URL ของ Google Apps Script ที่ Deploy แล้ว
 
             const data = { name, date };
 
@@ -17,7 +17,7 @@
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(data)
                 });
-                alert("บันทึกข้อมูลเรียบร้อย!");
+                alert("เพิ่มวันหยุดลงใน Google Calendar เรียบร้อยแล้ว!");
             } catch (error) {
                 alert("เกิดข้อผิดพลาด: " + error);
             }
@@ -25,8 +25,8 @@
     </script>
 </head>
 <body>
-    <h1>ลงทะเบียนวันหยุด</h1>
-    <form onsubmit="event.preventDefault(); submitForm();">
+    <h1>ลงทะเบียนวันหยุด (Google Calendar)</h1>
+    <form onsubmit="event.preventDefault(); submitToCalendar();">
         <label for="name">ชื่อ:</label>
         <input type="text" id="name" required><br>
         <label for="date">เลือกวันหยุด:</label>
